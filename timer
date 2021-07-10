@@ -1,0 +1,42 @@
+// Windows only
+#include <iostream>
+#include <stdlib.h>
+#include <windows.h> 
+using namespace std;
+
+void timer(int h, int m, int s,int d )
+{
+	while (true) {
+		if (d==0 && h == 0 && m == 0 && s == 0) {
+			cout << endl  << "Time up!" ;
+			break;
+		}
+		if (h == 0 && m == 0 && s == 0) {
+			h = 60;
+			d--;
+		}
+		if (m == 0 && s == 0) {
+			m = 60;
+			h--;
+		}
+		if (s == 0) {
+			s = 60;
+			m--;
+		}
+		system("cls");
+		cout << d << ":" << h << ":" << m << ":" << s--;
+		Sleep(1000);
+	}
+}
+
+int main()
+{
+	int h, m, s, d;
+	cout << "Enter the day "; 
+	cin >> d;
+	cout << "Enter the hours: "; cin >> h;
+	cout << "Enter the minutes: "; cin >> m;
+	cout << "Enter the seconds: "; cin >> s;
+	timer(h, m, s, d);
+
+}
